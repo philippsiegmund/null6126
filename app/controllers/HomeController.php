@@ -19,13 +19,6 @@ class HomeController extends BaseController {
 	{
 		return View::make('hello');
 	}
-	
-	public function main()
-	{
-		return View::make('main');
-	}
-	
-	
-	
+
 
 }

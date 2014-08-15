@@ -4,14 +4,63 @@
 
 @import url(http://fonts.googleapis.com/css?family=Poiret+One);
 
+html, body {
+	height: 100%;
+}
+
 h1,h2,h3,h4,h5,h6 {
 	font-family: 'Poiret One';
+}
+
+.header-nav ul {
+	float: right;
+	margin: 10px 0 0 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.header-nav ul li { 
+	margin-left: 10px;
+	display: inline; 
+}
+
+.header-nav ul li a {
+	text-decoration: none;
+	color: #333;
+}
+
+.header-nav ul li a:hover {
+	text-decoration: underline;
+}
+
+.sidebar ul {
+	list-style: none;
+}
+
+.sidebar ul li a {
+	color: #fff;
+}
+
+.sidebar ul li a:hover {
+	color: #FE9A2E;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 .login-row {
 	background-color: #eee;
 	margin-top: 10%;
 	padding-bottom: 30px;
+}
+
+.login-row .error {
+	background-color: #ff4f4f;
+	text-align: center;
+	margin-top: -95px;
+}
+
+.login-row .error h1 {
+	color: #fff;
 }
 
 .login-row .glyphicon-fire {
@@ -88,17 +137,11 @@ h1,h2,h3,h4,h5,h6 {
 	background-color: #ffffff;
 }
 
+.content-row, .sidebar, .container-fluid {
+	height: 100%;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.grey-bg {
+	background-color: #333;
+	color: #fff;
+}

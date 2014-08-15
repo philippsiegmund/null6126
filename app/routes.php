@@ -11,27 +11,25 @@
 |
 */
 
-Route::get('/', 'HomeController@main');
+Route::any('/', 'login');
 
 Route::resource('sessions', 'SessionsController');
-Route::get('login', 'SessionsController@create');
-Route::get('logout', 'SessionsController@destroy');
 
-Route::get('users', 'UsersController@index');
+Route::get('login', [
+			'as' => 'login', 
+			'uses' => 'SessionsController@create']);
+Route::get('logout', [
+			'as' => 'logout', 
+			'uses' => 'SessionsController@destroy']);
+
+Route::get('users', 'UsersController@index')->before('auth');
+Route::get('user', 'UsersController@index')->before('auth');
+
+Route::get('upload', [
+			'as' => 'upload', 
+			'uses' => 'ImagesController@create'])->before('auth');
 
 
 
-Route::get('/dummy', function()
-{
-	$user = User::create([
-		'username' => 'Philipp',
-		'email' => 'philipp.siegmund@gmail.com',
-		'password' => Hash::make('1234567')
-	]);
-	
-	return 'Dummy';
-});
+Route::get('admin', 'AdminsController@index')->before('auth');
 
-Route::get('/admin', function(){
-	return "Admin Page";	
-})->before('auth');

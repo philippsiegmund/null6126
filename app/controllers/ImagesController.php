@@ -1,18 +1,13 @@
 <?php
 
-class UsersController extends \BaseController {
+class ImagesController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
-		
-		return View::make('main');
-	}
-
+	public function index()	{}
 
 	/**
 	 * Show the form for creating a new resource.
@@ -21,19 +16,15 @@ class UsersController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('upload');
 	}
-
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
-	public function store()
-	{
-		//
-	}
+	public function store() {}
 
 
 	/**
@@ -42,11 +33,7 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
-	{
-		return "Users show";
-	}
-
+	public function show($id) {}
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -54,11 +41,7 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
-	{
-		//
-	}
-
+	public function edit($id) {}
 
 	/**
 	 * Update the specified resource in storage.
@@ -66,22 +49,14 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
-	{
-		//
-	}
-
-
+	public function update($id)	{}
+	
 	/**
 	 * Remove the specified resource from storage.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
-	{
-		//
-	}
-
+	public function destroy($id) {}
 
 }

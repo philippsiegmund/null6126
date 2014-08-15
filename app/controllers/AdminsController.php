@@ -1,6 +1,6 @@
 <?php
 
-class UsersController extends \BaseController {
+class AdminsController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,8 +9,7 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		
-		return View::make('main');
+		return "Admins Page";
 	}
 
 
@@ -44,7 +43,7 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return "Users show";
+		//
 	}
 
 
