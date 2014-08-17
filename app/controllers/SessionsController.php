@@ -5,7 +5,7 @@ class SessionsController extends BaseController {
 
 	public function create()
 	{
-		if ( Auth::check() ) return Redirect::to('user');
+		if ( Auth::check() ) return Redirect::to('users');
 		
 		return View::make('login');
 	}

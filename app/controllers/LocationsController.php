@@ -1,6 +1,6 @@
 <?php
 
-class UsersController extends \BaseController {
+class LocationsController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,9 +9,9 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$users = User::all();
+		$locations = Location::all();
 		
-		return View::make('users.index', array('users' => $users));
+		return View::make('locations.index', array('locations' => $locations));
 	}
 
 
@@ -22,7 +22,7 @@ class UsersController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('users.create');
+		return View::make('locations.create');
 	}
 
 
@@ -33,7 +33,7 @@ class UsersController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validation = Validator::make(Input::all(), array('email' => 'required', 'username' => 'required', 'password' => 'required'));		
+		$validation = Validator::make(Input::all(), array('name' => 'required'));		
 	
 		if ($validation->fails())
 		{
@@ -41,13 +41,13 @@ class UsersController extends \BaseController {
 			 return Redirect::back()->withInput()->withErrors($validation->messages());
 		}
 		
-		$user = new User;
-		$user->email = Input::get('email');
-		$user->username = Input::get('username');
-		$user->password = Hash::make(Input::get('password'));
-		$user->save();
+		$location = new Location;
+		$location->name = Input::get('name');
+		$location->long = Input::get('long');
+		$location->long = Input::get('lat');
+		$location->save();
 		
-		return Redirect::to('users');
+		return Redirect::to('locations');
 	}
 
 
@@ -59,7 +59,7 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return "Users show";
+		return "locations show";
 	}
 
 
@@ -71,8 +71,8 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$user = User::findOrFail($id);
-		return View::make('users.edit', compact('user', $user));
+		$location = Location::findOrFail($id);
+		return View::make('locations.edit', compact('location', $user));
 	}
 
 

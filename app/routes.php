@@ -11,25 +11,31 @@
 |
 */
 
-Route::any('/', 'login');
+Route::get('/', 'login');
+
+Route::get('login', array(
+			'as' => 'login', 
+			'uses' => 'SessionsController@create'));
+Route::get('logout', array(
+			'as' => 'logout', 
+			'uses' => 'SessionsController@destroy'));	
 
 Route::resource('sessions', 'SessionsController');
+Route::resource('users', 'UsersController');
 
-Route::get('login', [
-			'as' => 'login', 
-			'uses' => 'SessionsController@create']);
-Route::get('logout', [
-			'as' => 'logout', 
-			'uses' => 'SessionsController@destroy']);
 
-Route::get('users', 'UsersController@index')->before('auth');
-Route::get('user', 'UsersController@index')->before('auth');
+// Route::get('users', array(
+			// 'as' => 'users', 
+			// 'uses' => 'UsersController@index'))->before('auth');
+// 
+// Route::get('user', 'UsersController@index')->before('auth');
 
-Route::get('upload', [
+Route::get('upload', array(
 			'as' => 'upload', 
-			'uses' => 'ImagesController@create'])->before('auth');
+			'uses' => 'ImagesController@create'))->before('auth');
 
-
+Route::post('uploadimages', array(
+			'as' => 'uploadimages', 
+			'uses' => 'ImagesController@upload'))->before('auth');
 
 Route::get('admin', 'AdminsController@index')->before('auth');
-

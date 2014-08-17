@@ -12,11 +12,13 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-		<link rel="stylesheet" href="css/main.css">
-
-		<script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+		{{ HTML::style('/css/bootstrap.min.css') }}
+		{{ HTML::style('/css/bootstrap-theme.min.css') }}
+		{{ HTML::style('/css/bootstrap-switch.min.css') }}
+		{{ HTML::style('/css/fileinput.min.css') }}
+		{{ HTML::style('/css/main.css') }}
+		
+		{{ HTML::script('/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') }}
 	</head>
 	
 	<body>

@@ -58,5 +58,21 @@ class ImagesController extends \BaseController {
 	 * @return Response
 	 */
 	public function destroy($id) {}
+	
+	
+	
+	public function upload() {
+		foreach (Input::file('image') as $image) {
+			
+			$imagename = time() . $image->getClientOriginalname();
+			$uploadflag = $image->move('public/uploads', $imagename);
+			
+			if($uploadflag) {
+				$uploadedimages[] = $imagename;
+			}
+		}
+		
+		return Response::json( array('success' => true, 'message' => 'Images uploaded', 'images' => $uploadedimages ) );
+	}
 
 }
