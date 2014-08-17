@@ -34,7 +34,8 @@ class LocationsController extends \BaseController {
 	public function store()
 	{
 		$validation = Validator::make(Input::all(), array('name' => 'required'));		
-	
+		$user_id = Auth::id();	
+		
 		if ($validation->fails())
 		{
 				
@@ -44,7 +45,8 @@ class LocationsController extends \BaseController {
 		$location = new Location;
 		$location->name = Input::get('name');
 		$location->long = Input::get('long');
-		$location->long = Input::get('lat');
+		$location->lat = Input::get('lat');
+		$location->user_id = $user_id;
 		$location->save();
 		
 		return Redirect::to('locations');
@@ -72,7 +74,7 @@ class LocationsController extends \BaseController {
 	public function edit($id)
 	{
 		$location = Location::findOrFail($id);
-		return View::make('locations.edit', compact('location', $user));
+		return View::make('locations.edit', compact('location', $location));
 	}
 
 
@@ -84,15 +86,13 @@ class LocationsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$user = User::findOrFail($id);
-		$user->email = Input::get('email');
-		$user->username = Input::get('username');
-		if (Input::get('password') != ''){ 
-			$user->password = Hash::make(Input::get('password'));
-		}
-		$user->save();
+		$location = Location::findOrFail($id);
+		$location->name = Input::get('name');
+		$location->long = Input::get('long');
+		$location->lat = Input::get('lat');
+		$location->save();
 		
-		return Redirect::to('users');
+		return Redirect::to('locations');
 	}
 
 

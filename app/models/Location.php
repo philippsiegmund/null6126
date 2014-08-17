@@ -5,16 +5,14 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
-
-	use UserTrait, RemindableTrait;
+class Location extends Eloquent  {
 
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'users';
+	protected $table = 'locations';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -23,13 +21,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	 
 	protected $guarded = ['id', 'created_at', 'updated_at'];
-	protected $hidden = ['password', 'remember_token'];
 	
-	protected $fillable = ['username', 'email', 'password'];
-	
-	public function getId()
-	{
-	  return $this->id;
-	}
+	protected $fillable = ['name', 'long', 'lat'];
 
 }

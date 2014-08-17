@@ -59,7 +59,7 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return "Users show";
+		return $id;
 	}
 
 

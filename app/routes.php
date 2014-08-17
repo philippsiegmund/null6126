@@ -22,6 +22,7 @@ Route::get('logout', array(
 
 Route::resource('sessions', 'SessionsController');
 Route::resource('users', 'UsersController');
+Route::resource('locations', 'LocationsController');
 
 
 // Route::get('users', array(

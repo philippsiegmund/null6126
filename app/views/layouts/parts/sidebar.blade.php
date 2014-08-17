@@ -12,10 +12,10 @@
 		<li><a>Neues Event erstellen</a></li>
 	</ul>
 	
-	<h2>Locations</h2>
+	<h2>Orte</h2>
 	<ul>
-		<li><a>Alle anzeigen</a></li>
-		<li><a>Neue Location erstellen</a></li>
+		<li>{{ HTML::linkRoute('locations.index', 'Alle Orte anzeigen') }}</li>
+		<li>{{ HTML::linkRoute('locations.create', 'Neuen Ort hinzuf&uuml;gen') }}</li>
 	</ul>
 	
 	<h2>Profile</h2>
