@@ -1,5 +1,5 @@
 	<div class="col-md-3 grey-bg">
-		<h1>null6126.de</h1>
+		<h2>null6126.de</h2>
 	</div>
 	
 	<div class="col-md-9 header-nav">

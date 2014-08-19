@@ -11,25 +11,24 @@
 |
 */
 
-Route::get('/', 'login');
+Route::get('/',array( 'uses' => 'HomeController@index'));
+			
+Route::get('logout', array(
+			'as' => 'home.logout', 
+			'uses' => 'HomeController@destroy'));	
+
+Route::post('login', array(
+			'as' => 'home.login', 
+			'uses' => 'HomeController@login'));	
 
 Route::get('login', array(
-			'as' => 'login', 
-			'uses' => 'SessionsController@create'));
-Route::get('logout', array(
-			'as' => 'logout', 
-			'uses' => 'SessionsController@destroy'));	
+			'as' => 'home.getLogin', 
+			'uses' => 'HomeController@index'));	
 
-Route::resource('sessions', 'SessionsController');
 Route::resource('users', 'UsersController');
 Route::resource('locations', 'LocationsController');
-
-
-// Route::get('users', array(
-			// 'as' => 'users', 
-			// 'uses' => 'UsersController@index'))->before('auth');
-// 
-// Route::get('user', 'UsersController@index')->before('auth');
+Route::resource('images', 'ImagesController');
+Route::resource('events', 'EventsController');
 
 Route::get('upload', array(
 			'as' => 'upload', 

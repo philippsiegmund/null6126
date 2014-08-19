@@ -1,7 +1,6 @@
-<?php
+	<?php
 
 class EventsController extends \BaseController {
-
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -9,7 +8,9 @@ class EventsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$events = Event::all();
+		
+		return View::make('events.index', array('events' => $events));
 	}
 
 
@@ -20,7 +21,7 @@ class EventsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('events.create');
 	}
 
 
@@ -31,7 +32,23 @@ class EventsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$validation = Validator::make(Input::all(), array('name' => 'required'));		
+		$user_id = Auth::id();	
+		
+		if ($validation->fails())
+		{
+				
+			 return Redirect::back()->withInput()->withErrors($validation->messages());
+		}
+		
+		$event = new Event;
+		$event->name = Input::get('name');
+		$event->start = Input::get('start');
+		$event->end = Input::get('end');
+		$event->user_id = $user_id;
+		$event->save();
+		
+		return Redirect::to('events');
 	}
 
 
@@ -43,7 +60,7 @@ class EventsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		return "events show";
 	}
 
 
@@ -55,7 +72,8 @@ class EventsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$event = Event::findOrFail($id);
+		return View::make('events.edit', compact('event', $event));
 	}
 
 
@@ -67,7 +85,13 @@ class EventsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$event = Event::findOrFail($id);
+		$event->name = Input::get('name');
+		$event->start = Input::get('start');
+		$event->end = Input::get('end');
+		$event->save();
+		
+		return Redirect::to('events');
 	}
 
 

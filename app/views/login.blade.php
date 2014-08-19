@@ -2,9 +2,9 @@
 	<div class="container-fluid">
 			
 		<div class="row login-row">
-			@if (Session::get("error"))
+			@if ($errors->has('login'))
 					<div class="col-sm-6 col-md-12 error">	
-						<h1>{{ Session::get('error') }}</h1>
+						<h1>{{ $errors->first('login') }}</h1>
 					</div>
 			@endif
 
@@ -27,10 +27,10 @@
 			<div class="col-sm-6 col-md-4">
 				<div class="box">
 
-					{{ Form::open(['route' => 'sessions.store', 'class' => 'form-signin']) }}
+					{{ Form::open(['route' => 'home.login', 'class' => 'form-signin']) }}
 
-					{{ Form::email('email', '', ['class' => 'form-control']) }}
-					{{ Form::password('password', ['class' => 'form-control']) }}
+					{{ Form::email('email', '', ['class' => 'form-control', 'placeholder' => 'E-Mail']) }}
+					{{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Passwort']) }}
 
 					<button type="submit" class="btn btn-lg btn-block">
 						<span class="glyphicon glyphicon-ok"></span>

@@ -12,9 +12,15 @@ class CreateEventsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('events', function(Blueprint $table)
+		Schema::create('events', function(Blueprint $table)
 		{
-			//
+			$table -> increments("id");
+			$table -> string("name");
+			$table -> datetime("start");
+			$table -> datetime("end");
+			$table->unsignedInteger('user_id');
+			$table->foreign('user_id')->references('id')->on('users');
+			$table -> timestamps();
 		});
 	}
 
@@ -27,7 +33,7 @@ class CreateEventsTable extends Migration {
 	{
 		Schema::table('events', function(Blueprint $table)
 		{
-			//
+			Schema::dropTable($table);
 		});
 	}
 

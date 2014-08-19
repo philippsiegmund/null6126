@@ -16,6 +16,7 @@
 		{{ HTML::style('/css/bootstrap-theme.min.css') }}
 		{{ HTML::style('/css/bootstrap-switch.min.css') }}
 		{{ HTML::style('/css/fileinput.min.css') }}
+		
 		{{ HTML::style('/css/main.css') }}
 		
 		{{ HTML::script('/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') }}

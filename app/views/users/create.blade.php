@@ -4,7 +4,7 @@
 	@include('layouts.parts.sidebar')
 
 	<div class="col-md-9">
-	{{ Form::open(['route' => 'users.store']) }}
+	{{ Form::open(['route' => 'users.store', 'files' => true]) }}
 		<div class="col-md-4">
 			<h2>Create new user</h2>
 			
@@ -52,22 +52,13 @@
 				</button>
 		</div>
 		
-		<div class="col-md-4">
-			<h2>Settings</h2>
-			
-				<div class="form-group">
-	        			{{ Form::checkbox('admin', 1, null, ['class' => 'field']) }}
-	        			{{ Form::label('admin', 'Administrator')}}
-	      		</div>
-					
-				<div class="form-group">
-	        			{{ Form::checkbox('pwchange', 1, null, ['class' => 'field']) }}
-	        			{{ Form::label('pwchange', 'Password &auml;ndern')}}
-	      		</div>
-					
-				
+		<div class="col-md-4 create-avatar">
+			<div class="img-circular" style="background-image: url({{ URL::asset('img/avatars/light_on_dark/avatar_male_light_on_dark_96x96.png'); }})"></div>
+			<div class="form-group">
+				{{ Form::file('Image', ['id' => 'avatar-upload'])}}
+			</div>	
 			
 		</div>
 	{{ Form::close() }}
-	</div>
+	</div>	
 @stop

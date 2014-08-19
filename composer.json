@@ -5,7 +5,10 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"kartik-v/bootstrap-fileinput": "dev-master"
+		"kartik-v/bootstrap-fileinput": "dev-master",
+		"cartalyst/sentry": "2.1.*",
+		"way/generators": "2.*",
+		"laracasts/validation": "~1.0"
 	},
 	"autoload": {
 		"classmap": [
