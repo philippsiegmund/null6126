@@ -123,8 +123,10 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Cartalyst\Sentry\SentryServiceProvider',
-		'Laracasts\Validation\ValidationServiceProvider'
-
+		'Laracasts\Validation\ValidationServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
+		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+		'Toin0u\Geocoder\GeocoderServiceProvider',
 	),
 
 	/*
@@ -192,8 +194,9 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Sentry'            => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
-		'Carbon'            => 'Carbon\Carbon'
-
+		'Carbon'            => 'Carbon\Carbon',
+		'Image'             => 'Intervention\Image\Facades\Image',
+		'Geocoder'          => 'Toin0u\Geocoder\GeocoderFacade',
 	),
 
 );

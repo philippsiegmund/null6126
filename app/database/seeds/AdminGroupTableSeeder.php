@@ -1,6 +1,6 @@
 <?php
 
-class GroupTableSeeder extends Seeder {
+class AdminGroupTableSeeder extends Seeder {
 
 	public function run() {
 		try {

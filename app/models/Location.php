@@ -1,11 +1,8 @@
 <?php
 
-use Illuminate\Auth\UserTrait;
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableTrait;
-use Illuminate\Auth\Reminders\RemindableInterface;
+class Location extends Eloquent {
 
-class Location extends Eloquent  {
+	
 
 	/**
 	 * The database table used by the model.
@@ -22,6 +19,10 @@ class Location extends Eloquent  {
 	 
 	protected $guarded = ['id', 'created_at', 'updated_at'];
 	
-	protected $fillable = ['name', 'long', 'lat'];
+	protected $fillable = ['name', 'lon', 'lat'];
+
+	public function user() {
+		return $this->belongsTo('user');
+	}
 
 }

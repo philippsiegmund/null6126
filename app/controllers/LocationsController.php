@@ -34,7 +34,6 @@ class LocationsController extends \BaseController {
 	public function store()
 	{
 		$validation = Validator::make(Input::all(), array('name' => 'required'));		
-		$user_id = Auth::id();	
 		
 		if ($validation->fails())
 		{
@@ -42,12 +41,27 @@ class LocationsController extends \BaseController {
 			 return Redirect::back()->withInput()->withErrors($validation->messages());
 		}
 		
+		try
+		{
+    		$user = Sentry::getUser();
+		}
+		catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
+		{
+    		return 'Bollocks!';
+		}
+
 		$location = new Location;
 		$location->name = Input::get('name');
-		$location->long = Input::get('long');
+		$location->street = Input::get('street');
+		$location->num = Input::get('num');
+		$location->zip = Input::get('zip');
+		$location->city = Input::get('city');
+		$location->country = Input::get('country');
+		$location->lon = Input::get('lon');
 		$location->lat = Input::get('lat');
-		$location->user_id = $user_id;
-		$location->save();
+		
+		$location = $user->locations()->save($location);
+		
 		
 		return Redirect::to('locations');
 	}
@@ -107,5 +121,51 @@ class LocationsController extends \BaseController {
 		//
 	}
 
+
+	public function locate() {
+		
+		if ( Session::token() !== Input::get( '_token' ) ) {
+			return Response::json( array(
+				'error' => 'Unauthorized attempt to create option'
+			));
+		}
+		
+		$search_string = Input::get( 'search' );
+		
+		
+		$adapter = App::make('geocoder.adapter');
+		$providers = array(
+		    new \Geocoder\Provider\GoogleMapsProvider( $adapter, 'de', '', true )
+		);
+		
+		Geocoder::registerProviders($providers);
+		Geocoder::using('google_maps');
+		
+		try {
+			
+			$located = Geocoder::geocode($search_string);
+		} catch (\Exception $e) {
+			$msg = $e->getMessage();
+			
+			return Response::json( array(
+				'error' => $msg 
+			));
+		}
+		
+		$response = array(
+			'status'       => 'success',
+			'msg'          => 'Option created successfully',
+			'streetName'   => $located->getStreetName(),
+			'streetNumber' => $located->getStreetNumber(),
+			'city'         => $located->getCity(),
+			'zipcode'      => $located->getZipcode(),
+			'country'      => $located->getCountry(),
+			'longitude'    => $located->getLongitude(),
+			'latitude'     => $located->getLatitude(),
+		);
+
+		return Response::json( $response );
+
+	}
 
 }

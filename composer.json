@@ -8,7 +8,11 @@
 		"kartik-v/bootstrap-fileinput": "dev-master",
 		"cartalyst/sentry": "2.1.*",
 		"way/generators": "2.*",
-		"laracasts/validation": "~1.0"
+		"laracasts/validation": "~1.0",
+		"intervention/image": "2.*",
+		"intervention/imagecache": "dev-master",
+		"barryvdh/laravel-ide-helper": "1.*",
+		"toin0u/geocoder-laravel": "@stable"
 	},
 	"autoload": {
 		"classmap": [
@@ -27,6 +31,7 @@
                 ],
 		"post-update-cmd": [
 			"php artisan clear-compiled",
+			"php artisan ide-helper:generate",
 			"php artisan optimize"
 		],
 		"post-create-project-cmd": [

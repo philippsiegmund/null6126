@@ -37,10 +37,23 @@ h1, h2, h3, h4, h5, h6 {
 	width: 96px;
 	height: 96px;
 	background-size: cover;
+	background-position: center center;
 	display: block;
 	border-radius: 48px;
 	-webkit-border-radius: 48px;
 	-moz-border-radius: 48px;
+	margin: 20px auto;
+}
+
+.img-circular-create {
+	width: 200px;
+	height: 200px;
+	background-size: cover;
+	background-position: center center;
+	display: block;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
 	margin: 20px auto;
 }
 
@@ -169,10 +182,44 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .loc-desctext {
-	margin-bottom: 50px;
+	margin-top: 20px;
 }
 
 .create-avatar .img-circular {
 	margin-top: 97px;
 	margin-bottom: 45px; 
+}
+
+.address-form-shape {
+	margin-top: 138px;
+}
+
+.locate-form {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #EEE;
+}
+
+#locate-form-button {
+	margin-top: 26px;
+	padding: 13px 0;
+}
+
+#leaf-located {
+	height: 440px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+
+}
+
+.create-help {
+	background-color: #eee;
+	color: #333;
+	height: 240px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
 }

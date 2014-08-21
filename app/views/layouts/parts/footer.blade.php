@@ -14,6 +14,7 @@
 	{{ HTML::script('/js/vendor/bootstrap.min.js') }}
 	{{ HTML::script('/js/vendor/bootstrap-switch.min.js') }}
 	{{ HTML::script('/js/vendor/fileinput.js') }}
+	{{ HTML::script('/js/vendor/leaflet.js') }}
 	{{ HTML::script('/js/main.js') }}
 
 	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

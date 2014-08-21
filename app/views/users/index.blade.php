@@ -4,7 +4,7 @@
 	@include('layouts.parts.sidebar')
 
 	<div class="col-md-9">
-		<h1>Users Index</h1>
+		<h1>Alle Abenteurer</h1>
 		@if($users->count())
 		<table class="table table-striped">
 				<tr>

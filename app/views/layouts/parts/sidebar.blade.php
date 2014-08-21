@@ -9,10 +9,10 @@
 		<li>{{ HTML::linkRoute('upload', 'Fotos hochladen') }}</li>
 	</ul>
 	
-	<h2>Geschehen</h2>
+	<h2>Abenteuer</h2>
 	<ul>
-		<li>{{ HTML::linkRoute('events.index', 'Alle Ereignisse anzeigen') }}</li>
-		<li>{{ HTML::linkRoute('events.create', 'Neues Ereignisse hinzuf&uuml;gen') }}</li>
+		<li>Alle Abenteuer anzeigen</li>
+		<li>Neues Abenteuer starten</li>
 
 	</ul>
 	
@@ -20,14 +20,6 @@
 	<ul>
 		<li>{{ HTML::linkRoute('locations.index', 'Alle Orte anzeigen') }}</li>
 		<li>{{ HTML::linkRoute('locations.create', 'Neuen Ort hinzuf&uuml;gen') }}</li>
-	</ul>
-	
-	<h2>Profile</h2>
-	<ul>
-		<li><a>Meine Fotos</a></li>
-		<li><a>Meine Events</a></li>
-		<li><a>Einstellungen</a></li>
-		<li>{{ HTML::linkRoute('home.logout', 'Logout') }}</li>
 	</ul>
 
 	<h2>Admin</h2>
